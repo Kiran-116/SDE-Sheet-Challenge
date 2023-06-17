@@ -60,7 +60,7 @@ int lengthOfLongestConsecutiveSequence(vector<int> &arr, int n) {
     }
     int longest = 0;
     for (auto it: st) {                             // O(2N)
-        if (st.find(it - 1) == st.end())  {
+        if (st.find(it - 1) == st.end())  {         // Previous Element not found
             int count = 1;
             int x = it;     // current
             while (st.find(x+1) != st.end()) {  // O(1)
