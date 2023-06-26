@@ -54,3 +54,5 @@ bool isPalindrome(LinkedListNode<int> *head) {
     }
     return true;
 }
+// Time -> O(N)
+// Space -> O(1)
