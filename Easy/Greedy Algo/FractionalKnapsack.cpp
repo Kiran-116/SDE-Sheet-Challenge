@@ -3,22 +3,31 @@ using namespace std;
 
 // Take them in decreasing order of profit or value/weight ratio.
 
-bool comp(pair<int, int> a, pair<int, int> b) {
-    int x = (double)a.second/(double)a.first;
-    int y = (double)b.second/(double)b.first;
-    return (a.second > b.second);
+bool comp(pair<int,int>a,pair<int,int>b)
+{
+    double r1=(double)a.second/a.first;
+    double r2=(double)b.second/b.first;
+    return r1>r2;
 }
-
 double maximumValue (vector<pair<int, int>>& items, int n, int w)
 {
-    // ITEMS contains {weight, value} pairs.
-    // Sort in decreasing order of value/weight ratio.
-    sort(items.begin(), items.end(), comp);
-
-    int curWeight = 0;
-    double finalValue = 0.0;
-
-    for (int i = 0 ; i < n ; i++) {
-        
+    sort(items.begin(),items.end(),comp);
+    double res=0;
+    for (int i=0;i<n;i++)
+    {
+        if(items[i].first<=w)
+        {
+            res=res+items[i].second;
+            w=w-items[i].first;
+        }
+        else
+        {
+            res=res+(items[i].second *((double)w/items[i].first));
+            break;
+        }
     }
+    
+    return res;
 }
+// Time -> O(N logN)
+// Space -> O(1)
