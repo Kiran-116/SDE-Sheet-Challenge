@@ -95,3 +95,4 @@ vector<int> minHeap(int n, vector<vector<int>> &q)
 }
 
 // Time Complexity: O(N * log(N))
+// Space: O(N)
