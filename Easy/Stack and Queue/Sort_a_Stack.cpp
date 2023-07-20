@@ -34,4 +34,5 @@ void sortStack(stack<int> &stack)
     sortedInsert(stack, num);
 }
 
-// Time -> 
+// Time -> O(N^2)
+// Space -> O(N)
